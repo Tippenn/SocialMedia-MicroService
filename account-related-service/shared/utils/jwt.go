@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Tippenn/Social-Media-Project/config"
 	"github.com/golang-jwt/jwt/v5"
 )
 
-var jwtSecret = []byte("my-bootcamp-secret-key-123")
+var jwtSecret = []byte(config.GetConfig().Auth.Secret)
 
 func GenerateToken(Id string) (string, error) {
 	claims := jwt.MapClaims{

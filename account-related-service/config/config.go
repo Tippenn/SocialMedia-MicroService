@@ -13,6 +13,7 @@ type (
 		Server   *Server
 		Redis    *Redis
 		RabbitMQ *RabbitMQ
+		Auth     *Auth
 	}
 
 	Database struct {
@@ -36,12 +37,15 @@ type (
 		Password string
 	}
 	RabbitMQ struct {
-		Host                 string
-		Port                 int
-		User                 string
-		Password             string
-		VHost                string
-		Exchange             string
+		Host     string
+		Port     int
+		User     string
+		Password string
+		VHost    string
+		Exchange string
+	}
+	Auth struct {
+		Secret string
 	}
 )
 

@@ -1,0 +1,18 @@
+Server:
+  Port: 8080
+  BaseURL: http://localhost:8080
+AccountServer:
+  Port: 8081
+  BaseURL: http://localhost:8081
+TimelineServer:
+  Port: 8082
+  BaseURL: http://localhost:8082
+PostServer:
+  Port: 8083
+  BaseURL: http://localhost:8083
+Redis:
+  Host: localhost
+  Port: 6379
+  Password: ""
+Auth:
+  Secret: my-bootcamp-secret-key-123

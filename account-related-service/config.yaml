@@ -19,3 +19,5 @@ RabbitMQ:
   User: guest
   Password: guest
   Vhost: ""
+Auth:
+  Secret: my-bootcamp-secret-key-123
