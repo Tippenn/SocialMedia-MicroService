@@ -19,4 +19,9 @@ type UserRepository interface {
 	FindUserbyID(Id string) (*entities.User, error)
 	CreateUser(ctx context.Context, userId string, username string, name string, password string) error
 	UpdateUser(username *entities.User) error
+	//serverJWT
+	FindSessionbyUserID(ctx context.Context, Id string) (*entities.Session, error)
+	CreateSession(ctx context.Context, accessToken string, userId string) (*entities.Session, error)
+	UpdateSession(ctx context.Context, session *entities.Session) error
+	DeleteSession(ctx context.Context, userId string) error
 }

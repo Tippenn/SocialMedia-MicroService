@@ -15,7 +15,7 @@ import (
 )
 
 type userUseCase struct {
-	repo     users.UserRepository
+	repo users.UserRepository
 }
 
 func NewUserUseCase(repo users.UserRepository) users.UserUseCase {
@@ -44,6 +44,8 @@ func (u userUseCase) Login(ctx context.Context, requests *request.LoginRequest) 
 		return nil, errors.New("token is not generated correctly")
 	}
 
+	// insert token info to redis
+	_, err = u.repo.CreateSession(ctx, token, user.Id)
 	if err != nil {
 		return nil, errors.New("token is not verified on the database")
 	}
