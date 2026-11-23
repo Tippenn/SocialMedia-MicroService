@@ -14,6 +14,7 @@ import (
 
 func AuthMiddleware(uc JWTVerification.ServerJWTUseCase) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		c.Request.Header.Del("X-User-ID")
 		authHeader := c.GetHeader("Authorization")
 		if !strings.HasPrefix(authHeader, "Bearer ") {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "missing or invalid token"})
@@ -34,7 +35,7 @@ func AuthMiddleware(uc JWTVerification.ServerJWTUseCase) gin.HandlerFunc {
 			return
 		}
 
-		c.Set("user_Id", userId)
+		c.Request.Header.Set("X-User-ID", userId)
 		c.Next()
 	}
 
